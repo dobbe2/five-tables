@@ -42,12 +42,13 @@
     <script type="text/javascript">
     $("#add-btn").on("click", function(event){
         event.preventDefault();
-        var newReservation = {
-            name: $("#name").val().trim(),
-            phone: $("#phone").val().trim(),
-            email: $("#email").val().trim(),
-            uniqueID: $("#uniqueID").val().trim()
-        };
+            var newReservation = {
+                name: $("#name").val().trim(),
+                phone: $("#phone").val().trim(),
+                email: $("#email").val().trim(),
+                uniqueID: $("#uniqueID").val().trim()
+            };
+        let newReservation = ()
 
         //get request, if array more than 5, push to waitlist
         //<------>

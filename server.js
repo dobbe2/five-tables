@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path")
 const app = express();
 const PORT = 3000;
+let tablesArr = [];
+let waitlistArr = [];
 
 // List class
 class Reservation {
@@ -15,12 +17,9 @@ class Reservation {
     }
 };
 
-let tablesArr = [1,2,3,4,5,6];
-let waitlistArr = [];
-
 function addToTables() {
     if (tablesArr.length <= 5) {
-        const tainer = new Reservation("josh", 123, "123@gmail.com", 69420);
+        const tainer = new Reservation(, 123, "123@gmail.com", 69420);
         tablesArr.push(tainer); // tainer is an object here
         console.log(tablesArr);
     } else {
@@ -29,7 +28,7 @@ function addToTables() {
         console.log(waitlistArr);
     }
 }
-addToTables();
+
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -73,3 +72,5 @@ app.listen(PORT, function() {
 
 // Make Reservation
     // Form data for 
+
+module.exports = server;
