@@ -4,8 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reserve</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 <body>
+    <div class="container">
+        <div>
+            <header><h1>Five Tables</h1></header>
+        </div>
+
+        <h3>Make your reservation
+        </h3>
+        <a href="./tables.html"><button>View Tables</button></a>
+        <a href="./home.html"><button>Home</button></a>
+    </div>
+
+    <div class="reservation-info">
+        <form>
+            <p>Table Reservation</p>
+            <label for="name">Name</label><br>
+            <input type="text" id="name" name="name"><br>
+
+            <label for="phone">Phone Number</label><br>
+            <input type="text" id="phone" name="phone"><br>
+
+            <label for="name">Email</label><br>
+            <input type="text" id="email" name="email"><br>
+
+            <label for="name">Unique ID</label><br>
+            <input type="text" id="uniqueID" name="uniqueID"><br>
+
+            <button type="submit" id="add-btn">Submit</button>
+    </form>
+    </div>
+
+    <script type="text/javascript">
+    $("#add-btn").on("click", function(event){
+        event.preventDefault();
+        var newReservation = {
+            name: $("#name").val().trim(),
+            phone: $("#phone").val().trim(),
+            email: $("#email").val().trim(),
+            uniqueID: $("#uniqueID").val().trim()
+        };
+
+        //get request, if array more than 5, push to waitlist
+        //<------>
+        //if less than 5, push to reservations
+        $.post("/api/tables", reservations);
+        alert("Adding your reservation...")
+    })
     
+    </script>
 </body>
 </html>
