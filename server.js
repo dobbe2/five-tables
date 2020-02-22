@@ -58,9 +58,12 @@ app.get("/api/waitlist", function(req, res) {
     return res.json(waitlistArr);
 });
 
+app.get("/api/tables", function(req, res) {
+    return res.json(tablesArr);
+});
+
 app.post("/api/tables", function(req, res) {
-    let newReservation = req.body;
-    console.log(newReservation);
+    addToTables(req.body);
 })
 
 // Starts the server to begin listening
