@@ -15,18 +15,12 @@ class Reservation {
     }
 };
 
-let tablesArr = [];
-let waitlistArr = [];
-
-function addToTables() {
+function addToTables(req) {
+    let newReservation = req.body;
     if (tablesArr.length <= 5) {
-        const tainer = new Reservation("josh", 123, "123@gmail.com", 69420);
-        tablesArr.push(tainer); // tainer is an object here
-        console.log(tablesArr);
+        tablesArr.push(newReservation);
     } else {
-        const reserve = new Reservation("James", 456, "235@gmail.com", 123454)
-        waitlistArr.push(reserve);
-        console.log(waitlistArr);
+        waitlistArr.push(newReservation);
     }
 }
 addToTables();
@@ -73,10 +67,3 @@ app.listen(PORT, function() {
 });
 
 
-// Backend Logic
-
-// View Reservations
-
-
-// Make Reservation
-    // Form data for 
