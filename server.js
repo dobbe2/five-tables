@@ -2,8 +2,6 @@ const express = require("express");
 const path = require("path")
 const app = express();
 const PORT = 3000;
-let tablesArr = [];
-let waitlistArr = [];
 
 // List class
 class Reservation {
@@ -25,7 +23,7 @@ function addToTables(req) {
         waitlistArr.push(newReservation);
     }
 }
-
+addToTables();
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -40,7 +38,6 @@ app.get("/", function(req, res) {
 app.get("/styles.css", function(req, res) {
     res.sendFile(path.join(__dirname, "styles.css"));
 })
-  
 
 // When user does a GET or visits the /api/tables page on our
 // site, return our tables array
@@ -54,6 +51,11 @@ app.get("/api/tables", function(req, res) {
 app.get("/api/waitlist", function(req, res) {
     return res.json(waitlistArr);
 });
+
+app.post("/api/tables", function(req, res) {
+    let newReservation = req.body;
+    console.log(newReservation);
+})
 
 // Starts the server to begin listening
 // =============================================================
