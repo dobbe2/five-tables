@@ -11,7 +11,11 @@ app.use(express.json());
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "home.html"));
   });
-  
+
+//route for styles.css
+app.get("/styles.css", function(req, res) {
+    res.sendFile(path.join(__dirname, "styles.css"));
+})
 
 // When user does a GET or visits the /api/tables page on our
 // site, return our tables array
