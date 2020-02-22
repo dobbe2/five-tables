@@ -3,6 +3,8 @@ const path = require("path")
 const app = express();
 const PORT = 3000;
 
+let tablesArr = [];
+let waitlistArr = [];
 // List class
 class Reservation {
     constructor(name, phoneNumber, Email, uniqueID) {
@@ -22,8 +24,8 @@ function addToTables(req) {
     } else {
         waitlistArr.push(newReservation);
     }
+    console.log(`Tables array:${JSON.stringify(tablesArr)}\n Waitlist array:${JSON.stringify(waitlistArr)}`);
 }
-addToTables();
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -57,7 +59,7 @@ app.get("/api/tables", function(req, res) {
 });
 
 app.post("/api/tables", function(req, res) {
-    addToTables(req.body);
+    addToTables(req);
 })
 
 // Starts the server to begin listening
