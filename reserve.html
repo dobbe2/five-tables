@@ -53,7 +53,7 @@
         //get request, if array more than 5, push to waitlist
         //<------>
         //if less than 5, push to reservations
-        $.post("/api/tables", reservations);
+        $.post("/api/tables", addToTables);
         alert("Adding your reservation...")
     })
     
